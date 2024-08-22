@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from .models import Team
+from cars.models import Car
 
 
 # Create your views here.
 def home_page(request):
-    return render(request, 'pages/home.html')
+    cars = Car.objects.all()
+    context = {
+        'cars': cars
+    }
+    return render(request, 'pages/home.html', context)
 
 
 def about_page(request):

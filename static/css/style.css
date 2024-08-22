@@ -3256,6 +3256,10 @@ input[type=checkbox]:checked + label:before {
 .pricing-1 .pricing-btn {
     border-radius: 3px;
 }
+.not-found {
+    text-align: center;
+    width: 100%;
+}
 
 /** Team 1 start **/
 .team-1 {
@@ -3266,6 +3270,7 @@ input[type=checkbox]:checked + label:before {
 .team-1:hover{
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
+
 
 .team-1 .photo {
     position: relative;

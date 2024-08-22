@@ -125,3 +125,6 @@ class Car(models.Model):
     def __str__(self):
         return f"{self.car_title}"
 
+    def address(self):
+        return f"{self.state} {self.city}"
+

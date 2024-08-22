@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load humanize %}
 {% block content %}
 <!-- Sub banner start -->
 <div class="sub-banner overview-bgi">
@@ -21,78 +21,119 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-12">
-
                 <div class="row">
+                    {% for car in all_cars %}
                     <div class="col-lg-6 col-md-6">
-                        <div class="car-box-3">
-                            <div class="car-thumbnail">
+                         <div class="car-box">
+                            <div class="car-thumbnail" style="height: 262px" >
                                 <a href="car-details.html" class="car-img">
-                                    <div class="tag">For Rent</div>
-                                    <div class="price-box">
-                                        <span>$780.00</span>
+                                    <div class="tag">For Sale</div>
+                                    <img class="d-block w-100" src="{{ car.car_image.url }}" alt="car">
+                                    <div class="facilities-list clearfix">
+                                        <ul>
+                                            <li>
+                                                <span><i class="flaticon-way"></i></span>{{ car.milage }} km
+                                            </li>
+                                            <li>
+                                                <span><i class="flaticon-calendar-1"></i></span>{{car.year}}
+                                            </li>
+                                            <li>
+                                                <span><i class="flaticon-manual-transmission"></i></span>{{ car.transmission }}
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <img class="d-block w-100" src="{% static 'img/car/car-1.jpg' %}" alt="car">
                                 </a>
                                 <div class="carbox-overlap-wrapper">
                                     <div class="overlap-box">
                                         <div class="overlap-btns-area">
                                             <div class="car-magnify-gallery">
-                                                <a href="{% static 'img/car/car-1.jpg' %}" class="overlap-btn">
-                                                    <i class="fa fa-expand"></i>
-                                                    <img class="hidden" src="{% static 'img/car/car-1.jpg' %}">
-                                                </a>
-                                                <a href="{% static 'img/car/car-2.jpg' %}" class="hidden" >
-                                                    <img class="hidden" src="{% static 'img/car/car-2.jpg' %}">
-                                                </a>
-                                                <a href="{% static 'img/car/car-3.jpg' %}" class="hidden">
-                                                    <img class="hidden" src="{% static 'img/car/car-3.jpg' %}">
-                                                </a>
-                                                <a href="{% static 'img/car/car-4.jpg' %}" class="hidden">
-                                                    <img class="hidden" src="{% static 'img/car/car-4.jpg' %}">
-                                                </a>
-                                                <a href="{% static 'img/car/car-5.jpg' %}" class="hidden" >
-                                                    <img class="hidden" src="{% static 'img/car/car-5.jpg' %}">
-                                                </a>
-                                            </div>
+                                                    {% if car.car_image_1 %}
+                                                    <a href="{{ car.car_image_1.url }}" class="overlap-btn">
+                                                        <i class="fa fa-expand"></i>
+                                                        <img class="hidden" src="{{ car.car_image_1.url }}">
+                                                    </a>
+                                                    {% endif %}
+                                                    {% if car.car_image_2 %}
+                                                    <a href="{{ car.car_image_2.url }}" class="hidden">
+                                                        <img class="hidden" src="{{ car.car_image_2.url }}">
+                                                    </a>
+                                                    {% endif %}
+                                                    {% if car.car_image_3 %}
+                                                    <a href="{{ car.car_image_3.url }}" class="hidden">
+                                                        <img class="hidden" src="{{ car.car_image_3.url }}">
+                                                    </a>
+                                                    {% endif %}
+                                                    {% if car.car_image_4 %}
+                                                    <a href="{{ car.car_image_4.url }}" class="hidden">
+                                                        <img class="hidden" src="{{ car.car_image_4.url }}">
+                                                    </a>
+                                                    {% endif %}
+                                                    {% if car.car_image_5 %}
+                                                    <a href="{{ car.car_image_5.url }}" class="hidden">
+                                                        <img class="hidden" src="{{ car.car_image_5.url }}">
+                                                    </a>
+                                                    {% endif %}
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="detail">
                                 <h1 class="title">
-                                    <a href="car-details.html">Lamborghini Huracán</a>
+                                    <a href="car-details.html">{{car.car_title}}</a>
                                 </h1>
                                 <div class="location">
                                     <a href="car-details.html">
-                                        <i class="flaticon-pin"></i>123 Kathal St. Tampa City,
+                                        <i class="flaticon-pin"></i>{{ car.city }}, {{ car.state }}
                                     </a>
                                 </div>
-                                <ul class="facilities-list clearfix">
-                                    <li>Petrol</li>
-                                    <li>4,000 km</li>
-                                    <li>Manual</li>
-                                    <li>Sport</li>
-                                    <li>white</li>
-                                    <li>2020</li>
-                                </ul>
+                            </div>
+                            <div class="footer clearfix">
+                                <div class="pull-left ratings days">
+                                    <p class="cartype">{{ car.body_style }}</p>
+                                </div>
+                                <div class="pull-right">
+                                    <p class="price">${{car.price|intcomma}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
                 <!-- Page navigation start -->
                 <div class="pagination-box p-box-2 text-center">
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#"><i class="fa fa-angle-left"></i></a>
-                            </li>
-                            <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
-                            </li>
-                        </ul>
+                        {% if all_cars.has_other_pages %}
+                             <ul class="pagination">
+                                {% if all_cars.has_previous %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ all_cars.previous_page_number }}"><i class="fa fa-angle-left"></i></a>
+                                    </li>
+                                {% else %}
+                                   <li class="page-item" aria-disabled="true">
+                                        <a class="page-link" ><i class="fa fa-angle-left"></i></a>
+                                   </li>
+                                {% endif %}
+
+                                {% for i in all_cars.paginator.page_range %}
+                                    {% if all_cars.number == i %}
+                                        <li class="page-item"><a  class="page-link active" href="#">{{ i }}</a></li>
+                                    {% else %}
+                                        <li class="page-item"><a  class="page-link" href="?page={{i}}">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                {% if all_cars.has_next %}
+                                    <li class="page-item">
+                                        <a class="page-link" href="?page={{ all_cars.next_page_number  }}"><i class="fa fa-angle-right"></i></a>
+                                    </li>
+                                 {% else %}
+                                    <li class="page-item" aria-disabled="true">
+                                        <a class="page-link"><i class="fa fa-angle-right"></i></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
                     </nav>
                 </div>
             </div>
