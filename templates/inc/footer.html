@@ -126,6 +126,22 @@
 <script  src="{% static 'js/lightgallery-all.js' %}"></script>
 <script  src="{% static 'js/jnoty.js' %}"></script>
 <script  src="{% static 'js/app.js' %}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+{% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <script>
+           toastr.success("{{ message }}");
+        </script>
+    {% endif %}
+
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <script>
+           toastr.error("{{ message }}");
+        </script>
+    {% endif %}
+{% endfor %}
 
 
 </body>
