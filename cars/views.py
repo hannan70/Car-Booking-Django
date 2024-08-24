@@ -4,7 +4,10 @@ from .models import Car
 
 # Create your views here.
 def car_page(request):
-    return render(request, 'pages/car.html')
+    context = {
+         'title': "| Car Inventory"
+    }
+    return render(request, 'pages/car.html', context)
 
 
 def car_details(request, id):

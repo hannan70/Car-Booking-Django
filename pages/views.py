@@ -18,17 +18,28 @@ def home_page(request):
     fields = ['car_model', 'city', 'year', 'body_style']
 
     context = {
-        'cars': cars
+        'cars': cars,
+        'title': "| Home"
     }
     return render(request, 'pages/home.html', context)
 
+
 def about_page(request):
-    return render(request, 'pages/about.html')
+    context = {
+         'title': "| About"
+    }
+    return render(request, 'pages/about.html', context)
 
 
 def service_page(request):
-    return render(request, 'pages/service.html')
+    context = {
+         'title': "| Service"
+    }
+    return render(request, 'pages/service.html', context)
 
 
 def contact_page(request):
-    return render(request, 'pages/contact.html')
+    context = {
+         'title': "| Contact"
+    }
+    return render(request, 'pages/contact.html', context)
