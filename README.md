@@ -1,0 +1,4 @@
+- Carzone main feature
+  - Login with google 
+  - Login with github
+  - Login with facebook
