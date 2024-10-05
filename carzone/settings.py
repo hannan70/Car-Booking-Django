@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os.path
 from pathlib import Path
 
-from django.conf.global_settings import LOGIN_REDIRECT_URL
+from django.conf.global_settings import LOGIN_REDIRECT_URL, EMAIL_HOST, EMAIL_PORT, EMAIL_HOST_USER, \
+    EMAIL_HOST_PASSWORD, EMAIL_USE_TLS
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,6 +47,7 @@ EXTERNAL_APPS = [
     'cars',
     'ckeditor',
     'django.contrib.humanize',
+    'contacts',
     # all auth for social media login
     "django.contrib.sites",
     "allauth",
@@ -160,3 +162,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'dashboard'
 
 SITE_ID = 1
+
+# Email Sending
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "hannan.diuh@gmail.com"
+EMAIL_HOST_PASSWORD = 'kvld rcpa eklc ytch'
+EMAIL_USE_TLS = True
