@@ -86,7 +86,10 @@ ul {
     background: #db4437;
     color: #fff;
 }
-
+.github-bg {
+    background: #24292e;
+    color: #fff;
+}
 .linkedin-bg {
     background: #0177b5;
     color: #fff;
