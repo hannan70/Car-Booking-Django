@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.contrib.auth.models import User
 
 
+
 # Create your views here.
 def create_contact(request):
     if request.method == 'POST':

@@ -1,5 +1,5 @@
-
 import os.path
+from django.urls import reverse
 from django.db import models
 from ckeditor.fields import RichTextField
 from multiselectfield import MultiSelectField
@@ -127,4 +127,9 @@ class Car(models.Model):
 
     def address(self):
         return f"{self.state} {self.city}"
+
+    # get absolute path
+    # def get_absolute_url(self):
+    #     return reverse('car-details', args=[self.car_title])
+
 
