@@ -94,6 +94,9 @@ ul {
     background: #0177b5;
     color: #fff;
 }
+.slick-slide img {
+    height: 260px !important;
+}
 
 .rss-bg{
     background: #e78733;
